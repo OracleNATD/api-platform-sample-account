@@ -1,0 +1,81 @@
+FORMAT: 1A
+HOST: http://retail.oracle.org/
+
+# Account API
+
+Allows clients to query for account information. Clients can decide if they want 
+to receive all the details for the particular account or just the summary. 
+
+## accounts [/accounts]
+
+### Get All accounts [GET]
+Returns all accounts information
+
++ Response 200 (application/json)
+
+        [
+
+            { 
+                "accountname"   : "John Smith",
+                "accountid": "1000",                
+                "accountemail"    : "john.smith@example.com",
+                "balance"  : "$123.95",
+                "status": "Gold",
+                "activationdate" : "12/1/2001"
+            },
+            { 
+                "name"   : "Sally Jones",
+                "accountid": "2000",                
+                "accountemail"    : "sally.jones@example.com",
+                "balance"  : "$2,323.95",
+                "status": "Silver",
+                "activationdate" : "12/1/2008"               
+            },
+            { 
+                "name"   : "Kevin Johnston",
+                "accountid": "3000",                
+                "accountemail"    : "kevin.johnston@example.com",
+                "balance"  : "$723.95",
+                "status": "Platinum",
+                "activationdate" : "12/1/2001"              
+            }            
+            
+        ]
+
+## account Details [/account/details/{item}]
+
+### Get account details [GET]
+Returns all details for a specific account ID
+
++ Parameters
+    + item (number) - account item number.
+
++ Response 200 (application/json)
+
+        [
+            { 
+                "name"   : "John Smith",
+                "accountid": "1000",                
+                "accountemail"    : "john.smith@example.com",
+                "balance"  : "$123.95",
+                "status": "Gold",
+                "activationdate" : "12/1/2001"
+        ]
+
+
+## account Summary [/account/summary/{item}]
+
+### Get account Summary [GET]
+Returns only a summary of the account (name, price and summary).
+
++ Parameters
+    + item (number) - account item number.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "accountid": "1000",
+                "balance"  : "$123.95",
+                "status": "Gold",
+            }
