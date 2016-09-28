@@ -4,7 +4,7 @@ HOST: http://retail.oracle.org/
 # Account API
 
 Allows clients to query for account information. Clients can decide if they want 
-to receive all the details for the particular account or just the summary. 
+to receive all the details for the particular account or just the summary.   
 
 ## accounts [/accounts]
 
@@ -47,7 +47,7 @@ Returns all accounts information
 Returns all details for a specific account ID
 
 + Parameters
-    + item (number) - account item number.
+    + item:1000 (number) - account item number.
 
 + Response 200 (application/json)
 
@@ -69,7 +69,7 @@ Returns all details for a specific account ID
 Returns only a summary of the account (account balance and status).
 
 + Parameters
-    + item (number) - account item number.
+    + item:1000 (number) - account item number.
 
 + Response 200 (application/json)
 
