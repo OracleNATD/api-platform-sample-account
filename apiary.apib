@@ -3,7 +3,7 @@ HOST: http://retail.oracle.org/
 
 # Account API
 
-Allows clients to query for account information. Clients can decide if they want 
+Allows developers to query for account information. Developers can decide if they want 
 to receive all the details for the particular account or just the summary.   
 
 ## accounts [/accounts]
@@ -58,7 +58,9 @@ Returns all details for a specific account ID
                 "accountemail": "john.smith@example.com",
                 "balance": "$123.95",
                 "status": "Gold",
-                "activationdate": "12/1/2001"
+                "activationdate": "12/1/2001",
+                "rewardspoints" : "350",
+                "currency" : "US Dollar"
             }    
         ]
 
