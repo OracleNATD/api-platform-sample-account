@@ -6,10 +6,10 @@ HOST: http://retail.oracle.org/
 Allows developers to query for account information. Developers can decide if they want 
 to receive all the details for the particular account or just the summary.   
 
-## accounts [/accounts]
+## Accounts [/accounts]
 
 ### Get All accounts [GET]
-Returns all accounts information
+Returns a list of all accounts.
 
 + Response 200 (application/json)
 
@@ -40,8 +40,41 @@ Returns all accounts information
             }            
             
         ]
+### Create a New Account [POST]
 
-## account Details [/accounts/details/{item}]
+You may create your own acount using this action. It takes a JSON
+object containing the account details and returns the account ID.
+
++ Request (application/json)
+
+    + Headers
+    
+            tenant-id: 1 (number) - Requester's tenant-id
+            api-key: f3ae03ca-0937-4510-be76-775d6ada45e2 (number)
+            
+    + Body
+
+            {
+                "name": "W Brian Leonard",
+                "accountemail": "william.leonard@example.com",
+                "balance": "$593.27",
+                "status": "Platinum",
+                "activationdate": "11/07/2016"  
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /accounts/4000
+
+    + Body
+
+            {
+                "accountid": "4000"
+            }
+
+## Account Details [/accounts/details/{item}]
 
 ### Get account details [GET]
 Returns all details for a specific account ID
@@ -65,7 +98,7 @@ Returns all details for a specific account ID
         ]
 
 
-## account Summary [/accounts/summary/{item}]
+## Account Summary [/accounts/summary/{item}]
 
 ### Get account Summary [GET]
 Returns only a summary of the account (account balance and status).
